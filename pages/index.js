@@ -15,8 +15,8 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
       </Head>
 
-      <main className="text-center flex-grow border border-slate-800 font-serif bg-red-200">
-        <h1 className="p-5">
+      <main className="text-center flex-grow border border-slate-800 font-serif bg-red-200 font-family:'Times New Roman'">
+        <h1 className="p-5 text-lg">
           property inspiration
         </h1>
 
