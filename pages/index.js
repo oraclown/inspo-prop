@@ -28,9 +28,8 @@ export default function Home() {
 
       <footer>
         <p>
-          built by @oraclown
-          <a href="twitter.com/oraclown">twitter</a>
-          < a href="github.com/oraclown">github</a>
+        built by owen | < a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://www.twitter.com/oraclown">twitter</a>
+        &nbsp;| < a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://www.github.com/oraclown">github</a>
         </p>
       </footer>
     </div>
