@@ -24,10 +24,10 @@ export default function Home() {
           <p>nine random fetched pics go here</p>
         </div>
         
-        
+        <div className="flex justify-center">
         <button className="text-center p-1 mt-5 ml-5 mr-2.5 border border-slate-800 hover:bg-gradient-to-r from-teal-300 to-amber-300">click for next pics</button>
         <button className="text-center p-1 mt-5 ml-2.5 mr-5 border border-slate-800 hover:bg-gradient-to-r from-blue-300 to-pink-500">upload image</button>
-        
+        </div>
       </main>
 
       <footer className='text-center p-5 border border-slate-800 bg-emerald-200 font-serif font-family:"Times New Roman"'>
