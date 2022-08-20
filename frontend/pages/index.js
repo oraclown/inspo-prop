@@ -24,17 +24,21 @@ export default function Home() {
           />
       </div>
 
-      <h1 className="p-5 text-2xl font-bold text-center font-serif font-family:'Times New Roman'">
-        FUNDED DATA ON TELLOR
+      <h1 className="p-5 text-5xl font-bold text-center font-serif font-family:'Times New Roman'">
+        REJECTR
       </h1>
 
       <p className="p-5 bg-black text-center font-serif font-family:'Times New Roman'">
-        report data for fun and profit
+        track rejections, explore your opportunity space
       </p>
 
       <main className="flex-1 flex flex-col justify-center font-serif font-family:'Times New Roman'">
         <div className="text-center p-5">
-          <p>scrollable list of feeds funded</p>
+          <p>
+            paginated list of open asks, rejections, or accepteds.
+            <br/>
+            sort by tag(s), expiry, date created, text search, keyword search, etc.
+          </p>
         </div>
       </main>
 
