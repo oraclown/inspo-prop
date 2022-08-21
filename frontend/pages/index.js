@@ -28,12 +28,12 @@ export default function Home() {
         REJECTR
       </h1>
 
-      <p className="p-5 bg-black text-center font-serif font-family:'Times New Roman'">
+      <p className="p-5 bg-black bg-opacity-80 text-center font-serif font-family:'Times New Roman'">
         track rejections, explore your opportunity space
       </p>
 
       <div className="grid justify-items-center">
-        <button className="w-32 font-serif font-family:'Times New Roman' bg-black text-white font-bold mt-8 py-2 px-4 hover:text-[#1bf091]">
+        <button className="w-32 font-serif font-family:'Times New Roman' bg-black bg-opacity-80 text-white font-bold mt-8 py-2 px-4 hover:text-[#1bf091]">
           new entry
         </button>
       </div>
