@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { bgWrap } from '../styles/Home.module.css'
+import Table from "../components/Table.tsx";
 
 
 export default function Home() {
+
   return (
     // <div className="">
     <div className="flex flex-col h-screen text-[#1bf091]">
@@ -45,6 +47,9 @@ export default function Home() {
             <br/>
             sort by tag(s), expiry, date created, text search, keyword search, etc.
           </p>
+        </div>
+        <div className="grid justify-items-center bg-black bg-opacity-80">
+          <Table/>
         </div>
       </main>
 
