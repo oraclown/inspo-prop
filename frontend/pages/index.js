@@ -30,7 +30,7 @@ export default function Home() {
         REJECTR
       </h1>
 
-      <p className="p-5 bg-black bg-opacity-80 text-center font-serif font-family:'Times New Roman'">
+      <p className="p-5 bg-black bg-opacity-80 text-center font-serif font-family:'Times New Roman' underline decoration-pink-400">
         track rejections, explore your opportunity space
       </p>
 

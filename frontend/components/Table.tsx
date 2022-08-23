@@ -7,69 +7,69 @@ import {
 } from '@tanstack/react-table'
 
 type Person = {
-  firstName: string
-  lastName: string
-  age: number
-  visits: number
+  title: string
+  description: string
+  expiry: number
+  created: number
   status: string
-  progress: number
+  tags: string
 }
 
 const defaultData: Person[] = [
   {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 24,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
+    title: 'tanner',
+    description: 'linsley',
+    expiry: 24,
+    created: 100,
+    status: 'open',
+    tags: "50",
   },
   {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 40,
-    visits: 40,
-    status: 'Single',
-    progress: 80,
+    title: 'tandy',
+    description: 'miller',
+    expiry: 40,
+    created: 40,
+    status: 'rejected',
+    tags: "80",
   },
   {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 45,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
+    title: 'joe',
+    description: 'dirte',
+    expiry: 45,
+    created: 20,
+    status: 'accepted',
+    tags: "10",
   },
 ]
 
 const columnHelper = createColumnHelper<Person>()
 
 const columns = [
-  columnHelper.accessor('firstName', {
+  columnHelper.accessor('status', {
+    header: 'status',
+    footer: info => info.column.id,
+  }),
+  columnHelper.accessor('title', {
     cell: info => info.getValue(),
     footer: info => info.column.id,
   }),
-  columnHelper.accessor(row => row.lastName, {
-    id: 'lastName',
+  columnHelper.accessor(row => row.description, {
+    id: 'description',
     cell: info => <i>{info.getValue()}</i>,
-    header: () => <span>Last Name</span>,
+    header: () => <span>description</span>,
     footer: info => info.column.id,
   }),
-  columnHelper.accessor('age', {
-    header: () => 'Age',
+  columnHelper.accessor('expiry', {
+    header: () => 'expiry',
     cell: info => info.renderValue(),
     footer: info => info.column.id,
   }),
-  columnHelper.accessor('visits', {
-    header: () => <span>Visits</span>,
+  columnHelper.accessor('created', {
+    header: () => <span>created</span>,
     footer: info => info.column.id,
   }),
-  columnHelper.accessor('status', {
-    header: 'Status',
-    footer: info => info.column.id,
-  }),
-  columnHelper.accessor('progress', {
-    header: 'Profile Progress',
+  columnHelper.accessor('tags', {
+    header: 'tags',
     footer: info => info.column.id,
   }),
 ]
@@ -107,7 +107,7 @@ export default function Table() {
           {table.getRowModel().rows.map(row => (
             <tr key={row.id}>
               {row.getVisibleCells().map(cell => (
-                <td className="border border-pink-400" key={cell.id}>
+                <td className="p-4 border border-pink-400" key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
