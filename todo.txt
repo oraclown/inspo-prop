@@ -1,0 +1,24 @@
+Mostly frontend:
+- add column for outcome description
+- make "new entry" button add new row to list
+- make "new entry" button make a pop up to enter the details of that list item
+- render expiry and created times in human-readable current time for the user
+- add sort by expiry
+- add sort by created at
+- click to edit any row
+- sort by tags (include / exclude)
+- sort by status (open, accepted, rejected)
+- text search that includes titles, descriptions, & outcome
+
+Including backend:
+- add entry button sends new row to db
+- rows are rendered from database
+
+Later:
+- add profiles for each user
+- store data for each user
+- spec out analytics part of the dashboard (num rejections etc per wk, month, yr charts, named entity recognition over time, etc.)
+- make email signups or google signups
+- make signups require monthly strip payment
+- add professional square theme choices (light / dark mode)
+- 
