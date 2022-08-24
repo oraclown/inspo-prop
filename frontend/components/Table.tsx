@@ -6,16 +6,17 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 
-type Person = {
+type Record = {
   title: string
   description: string
   expiry: number
   created: number
   status: string
   tags: string
+  outcome: string
 }
 
-const defaultData: Person[] = [
+const defaultData: Record[] = [
   {
     title: '@fakeuser info interview',
     description: 'dmed founder @fakeuser and asked for an informational interview. link: https://twitter.com/blahblah what happens if the text is super long',
@@ -23,7 +24,7 @@ const defaultData: Person[] = [
     created: 12341234, // timestamp
     status: 'open',
     tags: "saas, interview, twitter",
-    // add outcome description
+    outcome: "",
   },
   {
     title: 'salary raise',
@@ -32,7 +33,7 @@ const defaultData: Person[] = [
     created: 12345678,
     status: 'rejected',
     tags: "job, career, finances",
-    // add outcome description
+    outcome: "gave a 5% raise!",
   },
   {
     title: 'improve table css bounty',
@@ -41,11 +42,11 @@ const defaultData: Person[] = [
     created: 12346789,
     status: 'accepted',
     tags: "delegated, twitter, saas",
-    // add outcome description
+    outcome: "@bojanglesfake followed the spec, made a pr, merged, sent bounty via venmo"
   },
 ]
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Record>()
 
 const columns = [
   columnHelper.accessor('status', {
@@ -69,6 +70,10 @@ const columns = [
   }),
   columnHelper.accessor('created', {
     header: () => <span>created</span>,
+    footer: info => info.column.id,
+  }),
+  columnHelper.accessor('outcome', {
+    header: 'outcome',
     footer: info => info.column.id,
   }),
   columnHelper.accessor('tags', {
@@ -118,26 +123,10 @@ export default function Table() {
           ))}
         </tbody>
         <tfoot>
-          {table.getFooterGroups().map(footerGroup => (
-            <tr key={footerGroup.id}>
-              {footerGroup.headers.map(header => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.footer,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
+          
         </tfoot>
       </table>
       <div className="h-4" />
-      <button onClick={() => rerender()} className="border p-2">
-        Rerender
-      </button>
     </div>
   )
 }
