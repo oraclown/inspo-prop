@@ -17,28 +17,31 @@ type Person = {
 
 const defaultData: Person[] = [
   {
-    title: 'tanner',
-    description: 'linsley',
-    expiry: 24,
-    created: 100,
+    title: '@fakeuser info interview',
+    description: 'dmed founder @fakeuser and asked for an informational interview. link: https://twitter.com/blahblah what happens if the text is super long',
+    expiry: 32341234, // timestamp
+    created: 12341234, // timestamp
     status: 'open',
-    tags: "50",
+    tags: "saas, interview, twitter",
+    // add outcome description
   },
   {
-    title: 'tandy',
-    description: 'miller',
-    expiry: 40,
-    created: 40,
+    title: 'salary raise',
+    description: 'asked boss for a 15% raise',
+    expiry: 45674567,
+    created: 12345678,
     status: 'rejected',
-    tags: "80",
+    tags: "job, career, finances",
+    // add outcome description
   },
   {
-    title: 'joe',
-    description: 'dirte',
-    expiry: 45,
-    created: 20,
+    title: 'improve table css bounty',
+    description: 'Asked on twitter for anyone who wants to contribute to this site if they could improve the CSS of this table. Linked a rough design spec as well with the needed features. Link: https://twitter.com/blahblah',
+    expiry: 67896789,
+    created: 12346789,
     status: 'accepted',
-    tags: "10",
+    tags: "delegated, twitter, saas",
+    // add outcome description
   },
 ]
 

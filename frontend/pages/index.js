@@ -41,13 +41,6 @@ export default function Home() {
       </div>
 
       <main className="flex-1 flex flex-col justify-center font-serif font-family:'Times New Roman'">
-        <div className="text-center p-5">
-          <p>
-            paginated list of open asks, rejections, or accepteds.
-            <br/>
-            sort by tag(s), expiry, date created, text search, keyword search, etc.
-          </p>
-        </div>
         <div className="grid justify-items-center bg-black bg-opacity-80">
           <Table/>
         </div>
