@@ -30,9 +30,9 @@ export default function Home() {
         REJECTR
       </h1>
 
-      <p className="p-5 bg-black bg-opacity-80 text-center font-serif font-family:'Times New Roman' underline decoration-pink-400">
+      <a className="p-5 bg-black bg-opacity-80 text-center font-serif font-family:'Times New Roman' underline decoration-pink-400 hover:text-purple-500" href="https://forum.effectivealtruism.org/posts/Pc3CFbYxPXgyjoDpB/seven-ways-to-become-unstoppably-agentic">
         track rejections, explore your opportunity space
-      </p>
+      </a>
 
       <div className="grid justify-items-center">
         <button className="w-32 font-serif font-family:'Times New Roman' bg-black bg-opacity-80 text-white font-bold mt-8 py-2 px-4 hover:text-[#1bf091]">
