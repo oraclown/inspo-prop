@@ -1,5 +1,4 @@
 Mostly frontend:
-- make table mobile-friendly (responsive)
 - make "new entry" button add new row to list
 - make "new entry" button make a pop up to enter the details of that list item
 - render expiry and created times in human-readable current time for the user
@@ -9,6 +8,7 @@ Mostly frontend:
 - sort by tags (include / exclude)
 - sort by status (open, accepted, rejected)
 - text search that includes titles, descriptions, & outcome
+- update favicon to uppercase R
 
 Including backend:
 - add entry button sends new row to db
@@ -19,6 +19,6 @@ Later:
 - store data for each user
 - spec out analytics part of the dashboard (num rejections etc per wk, month, yr charts, named entity recognition over time, etc.)
 - make email signups or google signups
-- make signups require monthly strip payment
+- make signups require monthly stripe payment
 - add professional square theme choices (light / dark mode)
 - 

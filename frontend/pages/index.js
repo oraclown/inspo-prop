@@ -2,9 +2,49 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { bgWrap } from '../styles/Home.module.css'
 import Table from "../components/Table.tsx";
+import React, { useState } from 'react';
 
+
+let defaultData = [
+  {
+    title: '@fakeuser info interview',
+    description: 'dmed founder @fakeuser and asked for an informational interview. link: https://twitter.com/blahblah what happens if the text is super long',
+    expiry: 32341234, // timestamp
+    created: 12341234, // timestamp
+    status: 'open',
+    tags: "saas, interview, twitter",
+    outcome: "",
+  },
+  {
+    title: 'salary raise',
+    description: 'asked boss for a 15% raise',
+    expiry: 45674567,
+    created: 12345678,
+    status: 'rejected',
+    tags: "job, career, finances",
+    outcome: "gave a 5% raise!",
+  },
+  {
+    title: 'improve table css bounty',
+    description: 'Asked on twitter for anyone who wants to contribute to this site if they could improve the CSS of this table. Linked a rough design spec as well with the needed features. Link: https://twitter.com/blahblah',
+    expiry: 67896789,
+    created: 12346789,
+    status: 'accepted',
+    tags: "delegated, twitter, saas",
+    outcome: "@bojanglesfake followed the spec, made a pr, merged, sent bounty via venmo"
+  },
+]
 
 export default function Home() {
+
+  const [rowData, setRowData] = useState(() => [...defaultData])
+  console.log(rowData)
+  const onAddRowClick = () => {
+    setRowData(
+      defaultData.concat({ title: "blah", description: "cashew", expiry: 0, created: 1234, status: "", tags: "", outcome: "" })
+    )
+  }
+
 
   return (
     // <div className="">
@@ -35,14 +75,17 @@ export default function Home() {
       </a>
 
       <div className="grid justify-items-center">
-        <button className="w-32 font-serif font-family:'Times New Roman' bg-black bg-opacity-80 text-white font-bold mt-8 py-2 px-4 hover:text-[#1bf091]">
+        <button 
+          onClick={onAddRowClick}
+          className="w-32 font-serif font-family:'Times New Roman' bg-black bg-opacity-80 text-white font-bold mt-8 py-2 px-4 hover:text-[#1bf091]"
+        >
           new entry
         </button>
       </div>
 
-      <main className="flex-1 flex flex-col justify-center font-serif font-family:'Times New Roman'">
+      <main className="mt-2 flex-1 flex flex-col justify-center font-serif font-family:'Times New Roman'">
         <div className="grid justify-items-center bg-black bg-opacity-80">
-          <Table/>
+          <Table data={rowData}/>
         </div>
       </main>
 
