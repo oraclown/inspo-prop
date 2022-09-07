@@ -3,6 +3,23 @@ import Image from 'next/image'
 import { bgWrap } from '../styles/Home.module.css'
 import Table from "../components/Table.tsx";
 import React, { useState } from 'react';
+import { LoremIpsum } from "lorem-ipsum";
+
+
+const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 8,
+    min: 4
+  },
+  wordsPerSentence: {
+    max: 16,
+    min: 4
+  }
+});
+
+lorem.generateWords(1);
+lorem.generateSentences(5);
+lorem.generateParagraphs(7);
 
 
 let defaultData = [
@@ -36,12 +53,22 @@ let defaultData = [
 ]
 
 export default function Home() {
+  let count = 0;
 
   const [rowData, setRowData] = useState(() => [...defaultData])
   console.log(rowData)
   const onAddRowClick = () => {
+    count += 1
     setRowData(
-      defaultData.concat({ title: "blah", description: "cashew", expiry: 0, created: 1234, status: "", tags: "", outcome: "" })
+      defaultData.concat({ 
+        title: lorem.generateWords(5), 
+        description: lorem.generateSentences(2), 
+        expiry: count, 
+        created: 1234, 
+        status: lorem.generateWords(1), 
+        tags: lorem.generateWords(3), 
+        outcome: lorem.generateSentences(1),
+      })
     )
   }
 
