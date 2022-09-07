@@ -4,6 +4,7 @@ import { bgWrap } from '../styles/Home.module.css'
 import Table from "../components/Table.tsx";
 import React, { useState } from 'react';
 import { LoremIpsum } from "lorem-ipsum";
+import { getRandomInt } from "../utils/Random.js";
 
 
 const lorem = new LoremIpsum({
@@ -53,18 +54,16 @@ let defaultData = [
 ]
 
 export default function Home() {
-  let count = 0;
 
   const [rowData, setRowData] = useState(() => [...defaultData])
-  console.log(rowData)
   const onAddRowClick = () => {
-    count += 1
+
     setRowData(
       rowData.concat({ 
         title: lorem.generateWords(5), 
         description: lorem.generateSentences(2), 
-        expiry: count, 
-        created: 1234, 
+        expiry: getRandomInt(1000000000), 
+        created: getRandomInt(1000000000), 
         status: lorem.generateWords(1), 
         tags: lorem.generateWords(3), 
         outcome: lorem.generateSentences(1),
