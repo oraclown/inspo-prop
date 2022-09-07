@@ -1,5 +1,4 @@
 Mostly frontend:
-- make "new entry" button add new row to list
 - make "new entry" button make a pop up to enter the details of that list item
 - render expiry and created times in human-readable current time for the user
 - add sort by expiry

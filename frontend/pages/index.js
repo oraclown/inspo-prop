@@ -60,7 +60,7 @@ export default function Home() {
   const onAddRowClick = () => {
     count += 1
     setRowData(
-      defaultData.concat({ 
+      rowData.concat({ 
         title: lorem.generateWords(5), 
         description: lorem.generateSentences(2), 
         expiry: count, 
