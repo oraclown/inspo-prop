@@ -5,6 +5,7 @@ import Table from "../components/Table.tsx";
 import React, { useState } from 'react';
 import { LoremIpsum } from "lorem-ipsum";
 import { getRandomInt } from "../utils/Random.js";
+// import AddEntry from "../components/NewEntryForm.js";
 
 
 const lorem = new LoremIpsum({
@@ -17,10 +18,6 @@ const lorem = new LoremIpsum({
     min: 4
   }
 });
-
-lorem.generateWords(1);
-lorem.generateSentences(5);
-lorem.generateParagraphs(7);
 
 
 let defaultData = [
@@ -57,7 +54,6 @@ export default function Home() {
 
   const [rowData, setRowData] = useState(() => [...defaultData])
   const onAddRowClick = () => {
-
     setRowData(
       rowData.concat({ 
         title: lorem.generateWords(5), 
