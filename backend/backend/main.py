@@ -5,14 +5,32 @@ from backend.data import DEFAULT_DATA
 
 app = FastAPI()
 
+PLACEHOLDER_DATABASE = DEFAULT_DATA
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "sup boi"}
 
 @app.get("/default_data")
 async def get_data():
-    return {"message": DEFAULT_DATA}
+    print("someone called get_data")
+    return {"message": PLACEHOLDER_DATABASE}
+
+# # add entry to placeholder databases data
+# @app.post("/default_data")
+# async def add_data():
+#     return {"message": PLACEHOLDER_DATABASE}
+
+# # update entry in placeholder databases data
+# @app.put("/default_data")
+# async def update_data():
+#     return {"message": PLACEHOLDER_DATABASE}
+
+# # delete entry in placeholder databases data
+# @app.delete("/default_data")
+# async def delete_data():
+#     return {"message": PLACEHOLDER_DATABASE}
+
 
 def start():
     """Launched with `poetry run api` at root level"""

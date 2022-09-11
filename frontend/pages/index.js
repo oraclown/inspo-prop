@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { LoremIpsum } from "lorem-ipsum";
 import { getRandomInt } from "../utils/Random.js";
 // import AddEntry from "../components/NewEntryForm.js";
+import axios from 'axios';
 
 
 const lorem = new LoremIpsum({
@@ -49,6 +50,33 @@ let defaultData = [
     outcome: "@bojanglesfake followed the spec, made a pr, merged, sent bounty via venmo"
   },
 ]
+let blahData = []
+// use axios to fetch blahData from backend
+try {
+  const res = axios
+    .get(
+      'http://localhost:8000/default_data',
+      // add 'Access-Control-Allow-Origin' to headers
+      // this results in err on backend api: "OPTIONS /default_data HTTP/1.1" 405 Method Not Allowed
+      // before it would get a 200 response on the python side
+      // { headers: { 'Access-Control-Allow-Origin': '*' } } 
+    )
+    // if you have ok response from the server
+    .then(response => {
+      alert(response.data);
+      console.log(response);
+    })
+    // if error
+    .catch(function(error) {
+      console.log(error);
+    });
+  blahData = JSON.stringify(res).message
+  console.log(blahData)
+} catch (err) {
+  console.log(err)
+}
+console.log(blahData)
+
 
 export default function Home() {
 
