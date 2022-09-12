@@ -55,7 +55,9 @@ let blahData = []
 try {
   const res = axios
     .get(
-      'http://localhost:8000/default_data',
+      // 'http://localhost:8000/default_data',
+      "https://red-ducks-study-193-56-116-236.loca.lt/default_data",
+      { headers: { "Bypass-Tunnel-Reminder": "bingo" } }
       // add 'Access-Control-Allow-Origin' to headers
       // this results in err on backend api: "OPTIONS /default_data HTTP/1.1" 405 Method Not Allowed
       // before it would get a 200 response on the python side
