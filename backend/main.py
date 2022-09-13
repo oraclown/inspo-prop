@@ -62,22 +62,10 @@ async def create_entry(entry: EntryIn):
     last_record_id = await database.execute(query)
     return {**entry.dict(), "id": last_record_id}
 
-# @app.get("/default_data")
-# async def get_data():
-#     print("someone called get_data")
-#     return {"message": PLACEHOLDER_DATABASE}
 
-# # add entry to placeholder databases data
-# @app.post("/default_data")
-# async def add_data():
-#     return {"message": PLACEHOLDER_DATABASE}
+@app.delete("/entries/")
+async def delete_entries():
+    query = entries_table.delete()
+    await database.execute(query)
+    return {"message": "All entries deleted"}
 
-# # update entry in placeholder databases data
-# @app.put("/default_data")
-# async def update_data():
-#     return {"message": PLACEHOLDER_DATABASE}
-
-# # delete entry in placeholder databases data
-# @app.delete("/default_data")
-# async def delete_data():
-#     return {"message": PLACEHOLDER_DATABASE}
