@@ -1,3 +1,32 @@
+from pydantic import BaseModel
+
+
+class EntryIn(BaseModel):
+  user_id: int
+  title: str
+  description: str
+  expiry: int
+  created: int
+  status: str
+  tags: str
+  outcome: str
+
+
+class EntryOut(EntryIn):
+  id: int
+
+
+class UserIn(BaseModel):
+  username: str
+  password: str
+  email: str
+  created: int
+  last_login: int
+
+
+class UserOut(UserIn):
+  id: int
+
 
 
 DEFAULT_DATA = [
@@ -29,3 +58,4 @@ DEFAULT_DATA = [
     "outcome": "@bojanglesfake followed the spec, made a pr, merged, sent bounty via venmo"
   },
 ]
+
