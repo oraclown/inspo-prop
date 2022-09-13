@@ -29,8 +29,9 @@ target_metadata = None
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
-db_url = os.environ.get("DATABASE_URL")
-config.set_main_option("sqlalchemy.url", db_url)
+# db_url = os.environ.get("DATABASE_URL")
+# config.set_main_option("sqlalchemy.url", db_url)
+config.set_main_option("sqlalchemy.url", f"postgresql://postgres:{os.getenv('DB_PASSWORD')}@localhost:5432/rejectr_db")
 
 
 def run_migrations_offline() -> None:

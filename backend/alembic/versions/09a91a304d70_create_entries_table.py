@@ -23,8 +23,8 @@ def upgrade():
         sa.Column("user_id", sa.Integer),
         sa.Column("title", sa.String),
         sa.Column("description", sa.String),
-        sa.Column("expiry", sa.Integer),
-        sa.Column("created", sa.DateTime),
+        sa.Column("expiry", sa.Integer), # unix timestamp
+        sa.Column("created", sa.Integer), # unix timestamp
         sa.Column("status", sa.String),
         sa.Column("tags", sa.String),
         sa.Column("outcome", sa.String),
