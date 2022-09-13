@@ -2,11 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { bgWrap } from '../styles/Home.module.css'
 import Table from "../components/Table.tsx";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LoremIpsum } from "lorem-ipsum";
 import { getRandomInt } from "../utils/Random.js";
-// import AddEntry from "../components/NewEntryForm.js";
-import axios from 'axios';
 
 
 const lorem = new LoremIpsum({
@@ -50,42 +48,30 @@ let defaultData = [
     outcome: "@bojanglesfake followed the spec, made a pr, merged, sent bounty via venmo"
   },
 ]
-let blahData = []
-// use axios to fetch blahData from backend
-try {
-  const res = axios
-    .get(
-      // 'http://localhost:8000/default_data',
-      "https://red-ducks-study-193-56-116-236.loca.lt/default_data",
-      { headers: { "Bypass-Tunnel-Reminder": "bingo" } }
-      // add 'Access-Control-Allow-Origin' to headers
-      // this results in err on backend api: "OPTIONS /default_data HTTP/1.1" 405 Method Not Allowed
-      // before it would get a 200 response on the python side
-      // { headers: { 'Access-Control-Allow-Origin': '*' } } 
-    )
-    // if you have ok response from the server
-    .then(response => {
-      alert(response.data);
-      console.log(response);
-    })
-    // if error
-    .catch(function(error) {
-      console.log(error);
-    });
-  blahData = JSON.stringify(res).message
-  console.log(blahData)
-} catch (err) {
-  console.log(err)
-}
-console.log(blahData)
 
 
 export default function Home() {
 
   const [rowData, setRowData] = useState(() => [...defaultData])
-  const onAddRowClick = () => {
-    setRowData(
-      rowData.concat({ 
+
+  useEffect(() => {
+    async function fetchEntries() {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/entries/`);
+      const json = await res.json();
+      console.log(json)
+      setRowData([...defaultData, ...json]);
+    }
+    fetchEntries();
+  }, [])
+
+  async function handleSubmit() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/entries/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: getRandomInt(1000000000),
         title: lorem.generateWords(5), 
         description: lorem.generateSentences(2), 
         expiry: getRandomInt(1000000000), 
@@ -94,7 +80,9 @@ export default function Home() {
         tags: lorem.generateWords(3), 
         outcome: lorem.generateSentences(1),
       })
-    )
+    })
+    const json = await res.json();
+    setRowData([...rowData, json])
   }
 
 
@@ -128,7 +116,7 @@ export default function Home() {
 
       <div className="grid justify-items-center">
         <button 
-          onClick={onAddRowClick}
+          onClick={handleSubmit}
           className="w-32 font-serif font-family:'Times New Roman' bg-black bg-opacity-80 text-white font-bold mt-8 py-2 px-4 hover:text-[#1bf091]"
         >
           new entry
